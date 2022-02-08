@@ -1,0 +1,371 @@
+﻿
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="/assets/Client/images/favicon.png" rel="shortcut icon">
+    <title>Ludus - Electronics, Apparel, Computers, Books, DVDs & more</title>
+
+    <!--====== Google Font ======-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
+
+    <!--====== Vendor Css ======-->
+    <link rel="stylesheet" href="/assets/Client/css/vendor.css">
+    
+    <!--====== Utility-Spacing ======-->
+    <link rel="stylesheet" href="/assets/Client/css/utility.css">
+
+    <!--====== App ======-->
+    <link rel="stylesheet" href="/assets/Client/css/app.css">
+</head>
+<body class="config">
+    <div class="preloader is-active">
+        <div class="preloader__wrap">
+
+            <img class="preloader__img" src="/assets/Client/images/preloader.png" alt="">
+        </div>
+    </div>
+
+    <!--====== Main App ======-->
+    <div id="app">
+
+        <!--====== Main Header ======-->
+        <header class="header--style-1">
+
+            <!--====== Nav 1 ======-->
+            <nav class="primary-nav primary-nav-wrapper--border">
+                <div class="container">
+
+                    <!--====== Primary Nav ======-->
+                    <div class="primary-nav">
+
+                        <!--====== Main Logo ======-->
+
+                        <a class="main-logo" href="/Home/Index">
+
+                            <img src="/assets/Client/images/logo/logo-1.png" alt="">
+                        </a>
+                        <!--====== End - Main Logo ======-->
+                        <!--====== Search Form ======-->
+                        @*<form class="main-form" action="/tim-kiem" method="get">
+
+                            <label for="txtkeyword"></label>
+
+                            <input class="input-text input-text--border-radius input-text--style-1" type="text" id="txtkeyword" placeholder="Tìm kiếm">
+
+                            <button class="btn btn--icon fas fa-search main-search-button" type="submit"></button>
+                        </form>*@
+                        <!--====== End - Search Form ======-->
+                        <!--====== Dropdown Main plugin ======-->
+                        <div class="menu-init" id="navigation">
+
+                            <button class="btn btn--icon toggle-button toggle-button--secondary fas fa-cogs" type="button"></button>
+
+                            <!--====== Menu ======-->
+                            <div class="ah-lg-mode">
+
+                                <span class="ah-close">✕ Close</span>
+
+                                <!--====== List ======-->
+                                <ul class="ah-list ah-list--design1 ah-list--link-color-secondary">
+                                    <li class="has-dropdown" data-tooltip="tooltip" data-placement="left" title="Account">
+
+                                        <a><i class="far fa-user-circle"></i></a>
+
+                                        <!--====== Dropdown ======-->
+
+                                        <span class="js-menu-toggle"></span>
+                                        <ul style="width:120px">
+                                            
+                                            <li>
+
+                                                <a href="/dang-ky">
+                                                    <i class="fas fa-user-plus u-s-m-r-6"></i>
+
+                                                    <span>Đăng ký</span>
+                                                </a>
+                                            </li>
+                                            @{
+                                                var session = (OnlineShop.Common.UserLogin) Session[OnlineShop.Common.CommonConstant.USER_SESSION];
+                                            }
+                                            @if (session == null)
+                                            {
+                                                <li>
+
+                                                    <a href="/dang-nhap">
+                                                        <i class="fas fa-lock u-s-m-r-6"></i>
+
+                                                        <span>Đăng nhập</span>
+                                                    </a>
+                                                </li>
+                                            }
+                                            else
+                                            {
+                                                <li>
+
+                                                    <a href="#">
+                                                        <i class="fas fa-lock u-s-m-r-6"></i>
+
+                                                        <span>@session.UserName</span>
+                                                    </a>
+                                                </li>
+                                            }
+                                            <li>
+
+                                                <a href="/dang-xuat">
+                                                    <i class="fas fa-lock-open u-s-m-r-6"></i>
+
+                                                    <span>Đăng xuất</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <!--====== End - Dropdown ======-->
+                                    </li>
+                                    
+                                </ul>
+                                <!--====== End - List ======-->
+                            </div>
+                            <!--====== End - Menu ======-->
+                        </div>
+                        <!--====== End - Dropdown Main plugin ======-->
+                    </div>
+                    <!--====== End - Primary Nav ======-->
+                </div>
+            </nav>
+            <!--====== End - Nav 1 ======-->
+            <!--====== Nav 2 ======-->
+            <nav class="secondary-nav-wrapper">
+                <div class="container">
+
+                    <!--====== Secondary Nav ======-->
+                    <div class="secondary-nav">
+
+                        <!--====== Dropdown Main plugin ======-->
+                        <div class="menu-init" id="navigation1">
+
+
+                        </div>
+                        <!--====== End - Dropdown Main plugin ======-->
+                        <!--====== Dropdown Main plugin ======-->
+                        <div class="menu-init" id="navigation2">
+
+                            <button class="btn btn--icon toggle-button toggle-button--secondary fas fa-cog" type="button"></button>
+
+                            <!--====== Menu ======-->
+                            <div class="ah-lg-mode">
+
+                                <span class="ah-close">✕ Close</span>
+
+                                <!--====== List ======-->
+                                <ul class="ah-list ah-list--design2 ah-list--link-color-secondary">
+                                    @{ Html.RenderAction("MainMenu", "Home");}
+                                </ul>
+                                <!--====== End - List ======-->
+                            </div>
+                            <!--====== End - Menu ======-->
+                        </div>
+                        <!--====== End - Dropdown Main plugin ======-->
+                        <!--====== Dropdown Main plugin ======-->
+                        <div class="menu-init" id="navigation3">
+
+                            <button class="btn btn--icon toggle-button toggle-button--secondary fas fa-shopping-bag toggle-button-shop" type="button"></button>
+
+                            <span class="total-item-round">2</span>
+
+                            <!--====== Menu ======-->
+                            <div class="ah-lg-mode">
+
+                                <span class="ah-close">✕ Close</span>
+
+                                <!--====== List ======-->
+                                <ul class="ah-list ah-list--design1 ah-list--link-color-secondary">
+                                    <li>
+
+                                        <a href="/Home/Index"><i class="fas fa-home u-c-brand"></i></a>
+                                    </li>
+                                    @{ Html.RenderAction("HeaderCart", "Home");}
+                                    
+                                </ul>
+                                <!--====== End - List ======-->
+                            </div>
+                            <!--====== End - Menu ======-->
+                        </div>
+                        <!--====== End - Dropdown Main plugin ======-->
+                    </div>
+                    <!--====== End - Secondary Nav ======-->
+                </div>
+            </nav>
+            <!--====== End - Nav 2 ======-->
+        </header>
+        <!--====== End - Main Header ======-->
+        <!--====== App Content ======-->
+        @RenderBody()
+        <!--====== End - App Content ======-->
+        <!--====== Main Footer ======-->
+        <footer>
+            <div class="outer-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6">
+                            <div class="outer-footer__content u-s-m-b-40">
+
+                                <span class="outer-footer__content-title">Liên hệ chúng tôi</span>
+                                <div class="outer-footer__text-wrap">
+                                    <i class="fas fa-home"></i>
+
+                                    <span>Trường cao đẳng công nghệ bách khoa Hà Nội</span>
+                                </div>
+                                <div class="outer-footer__text-wrap">
+                                    <i class="fas fa-phone-volume"></i>
+
+                                    <span>(+0) 900 901 904</span>
+                                </div>
+                                <div class="outer-footer__text-wrap">
+                                    <i class="far fa-envelope"></i>
+
+                                    <span>contact@domain.com</span>
+                                </div>
+                                <div class="outer-footer__social">
+                                    <ul>
+                                        <li>
+
+                                            <a class="s-fb--color-hover" href="#"><i class="fab fa-facebook-f"></i></a>
+                                        </li>
+                                        <li>
+
+                                            <a class="s-tw--color-hover" href="#"><i class="fab fa-twitter"></i></a>
+                                        </li>
+                                        <li>
+
+                                            <a class="s-youtube--color-hover" href="#"><i class="fab fa-youtube"></i></a>
+                                        </li>
+                                        <li>
+
+                                            <a class="s-insta--color-hover" href="#"><i class="fab fa-instagram"></i></a>
+                                        </li>
+                                        <li>
+
+                                            <a class="s-gplus--color-hover" href="#"><i class="fab fa-google-plus-g"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="row">
+                                
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="outer-footer__content u-s-m-b-40">
+                                        <div class="outer-footer__list-wrap">
+
+                                            <span class="outer-footer__content-title">Cửa hàng chúng tôi</span>
+                                            <ul>
+                                                <li>
+
+                                                    <a href="/lien-he">Liên hệ chúng tôi</a>
+                                                </li>
+                                                <li>
+
+                                                    <a href="/">Cửa hàng</a>
+                                                </li>
+                                                
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12">
+                            <div class="outer-footer__content">
+
+                                <span class="outer-footer__content-title">Tham gia bản tin của chúng tôi</span>
+                                <span class="newsletter__text">Theo dõi danh sách gửi thư để nhận thông tin cập nhật về các chương trình khuyến mãi, hàng mới, chiết khấu và phiếu giảm giá.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="lower-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="lower-footer__content">
+                                <div class="lower-footer__copyright">
+
+                                    <span>Copyright © 2018</span>
+
+                                    <a href="index.html">Reshop</a>
+
+                                    <span>All Right Reserved</span>
+                                </div>
+                                <div class="lower-footer__payment">
+                                    <ul>
+                                        <li><i class="fab fa-cc-stripe"></i></li>
+                                        <li><i class="fab fa-cc-paypal"></i></li>
+                                        <li><i class="fab fa-cc-mastercard"></i></li>
+                                        <li><i class="fab fa-cc-visa"></i></li>
+                                        <li><i class="fab fa-cc-discover"></i></li>
+                                        <li><i class="fab fa-cc-amex"></i></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!--====== Modal Section ======-->
+        <!--====== Quick Look Modal ======-->
+        
+        
+        <!--====== End - Add to Cart Modal ======-->
+        <!--====== Newsletter Subscribe Modal ======-->
+        <!--====== End - Newsletter Subscribe Modal ======-->
+        <!--====== End - Modal Section ======-->
+    </div>
+    <!--====== End - Main App ======-->
+    <!--====== Google Analytics: change UA-XXXXX-Y to be your site's ID ======-->
+    <script>
+        window.ga = function() {
+            ga.q.push(arguments)
+        };
+        ga.q = [];
+        ga.l = +new Date;
+        ga('create', 'UA-XXXXX-Y', 'auto');
+        ga('send', 'pageview')
+    </script>
+    <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+    
+    <!--====== Vendor Js ======-->
+    <script src="/assets/Client/js/vendor.js"></script>
+    
+    <!--====== jQuery Shopnav plugin ======-->
+    <script src="/assets/Client/js/jquery.shopnav.js"></script>
+
+    <!--====== App ======-->
+    <script src="/assets/Client/js/app.js"></script>
+
+    <!--====== Noscript ======-->
+    <noscript>
+        <div class="app-setting">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="app-setting__wrap">
+                            <h1 class="app-setting__h1">JavaScript is disabled in your browser.</h1>
+
+                            <span class="app-setting__text">Please enable JavaScript in your browser or upgrade to a JavaScript-capable browser.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </noscript>
+    @RenderSection("jsFooter", required: false)
+</body>
+</html>

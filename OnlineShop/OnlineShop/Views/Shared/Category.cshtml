@@ -1,0 +1,33 @@
+﻿@model List<Models.FrameWork.loaisp>
+@{
+    ViewBag.Title = "Category";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+}
+
+<div class="u-s-m-b-30">
+    <div class="shop-w shop-w--style">
+        <div class="shop-w__intro-wrap">
+            <h1 class="shop-w__h">CATEGORY</h1>
+
+            <span class="fas fa-minus shop-w__toggle" data-target="#s-category" data-toggle="collapse"></span>
+        </div>
+        <div class="shop-w__wrap collapse show" id="s-category">
+            <ul class="shop-w__category-list gl-scroll">
+                @foreach (var item in Model)
+                {
+                    <li>
+
+                        <a href="/san-pham/@item.ID">@item.TENLOAI</a>
+
+
+                    </li>
+                }
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+

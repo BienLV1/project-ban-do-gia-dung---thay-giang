@@ -1,0 +1,64 @@
+﻿@model Models.FrameWork.tintuc
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="app-content">
+
+    <!--====== Section 1 ======-->
+    <div class="u-s-p-y-90">
+
+        <!--====== Detail Post ======-->
+        <div class="detail-post">
+            <div class="bp-detail">
+                <div class="bp-detail__thumbnail">
+
+                    <!--====== Image Code ======-->
+                    <div class="aspect aspect--bg-grey aspect--1366-768">
+
+                        <img class="aspect__img" src="@Model.ANH" alt="">
+                    </div>
+                    <!--====== End - Image Code ======-->
+                </div>
+                <div class="bp-detail__info-wrap">
+                    <div class="bp-detail__stat">
+
+                        <span class="bp-detail__stat-wrap">
+
+                            <span class="bp-detail__publish-date">
+
+                                <span>@Model.NGAYDANG</span>
+                            </span>
+                        </span>
+
+                        <span class="bp-detail__stat-wrap">
+
+                            <span class="bp-detail__author">
+
+                                @Model.LOAITIN
+                            </span>
+                        </span>
+
+                        
+                    </div>
+
+                    <span class="bp-detail__h1">
+
+                        <a href="#">@Model.TIEUDE</a>
+                    </span>
+                    
+                    <p class="bp-detail__p">
+                        @Model.NOIDUNG
+
+                        
+                    </p>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+

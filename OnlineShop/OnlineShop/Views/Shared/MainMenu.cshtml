@@ -1,0 +1,5 @@
+﻿@model List<Models.FrameWork.Menu>
+@foreach (var item in Model)
+{
+    <li class="nav-item active"><a href="/@item.Link"  class="nav-link" style="font-size:15px;padding:8px 15px;">@item.Text</a></li>
+}

@@ -1,0 +1,718 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var slide = (List<Models.FrameWork.Slide>)ViewBag.Slide;
+    var listNewProduct = (List<Models.FrameWork.sanpham>)ViewBag.NewProduct;
+    var listFeatureProduct = (List<Models.FrameWork.sanpham>)ViewBag.FeattureProduct;
+    var listSaleProduct = (List<Models.FrameWork.sanpham>)ViewBag.SaleProduct;
+    var tenLoaiSp = (List<Models.FrameWork.loaisp>)ViewBag.TenLoaiSp;
+    var sanPhamTuongTu = (List<Models.FrameWork.sanpham>)ViewBag.SanPhamTuongTu;
+    var allProduct = (List<Models.FrameWork.sanpham>)ViewBag.AllProduct;
+    var tintuc = (List<Models.FrameWork.tintuc>)ViewBag.ListTinTuc;
+    var feedback = (List<Models.FrameWork.binhluan>)ViewBag.ListFeedBack;
+    var logo = (List<Models.FrameWork.hangsx>)ViewBag.Logo;
+}
+
+<!--====== App Content ======-->
+<div class="app-content">
+
+    <!--====== Primary Slider ======-->
+    <div class="s-skeleton s-skeleton--h-600 s-skeleton--bg-grey">
+        <div class="owl-carousel primary-style-1" id="hero-slider">
+            @foreach (var item in slide)
+            {
+                <div class="hero-slide hero-slide--1" style="background-image:url(@item.Image);">
+                    
+                   
+                </div>
+            }
+            
+            
+        </div>
+    </div>
+    <!--====== End - Primary Slider ======-->
+    <!--====== Section 1 ======-->
+    <div class="u-s-p-y-60">
+
+        <!--====== Section Intro ======-->
+        <div class="section__intro u-s-m-b-46">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section__text-wrap">
+                            <h1 class="section__heading u-c-secondary u-s-m-b-12">MUA SẮM SIÊU ƯU ĐÃI</h1>
+
+                            <span class="section__span u-c-silver">NHIỀU CHƯƠNG TRÌNH KHUYẾN MẠI ĐẶC BIỆT</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--====== End - Section Intro ======-->
+        <!--====== Section Content ======-->
+        <div class="section__content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 col-md-5 u-s-m-b-30">
+
+                        <a class="collection" href="/san-pham">
+                            <div class="aspect aspect--bg-grey aspect--square">
+
+                                <img class="aspect__img collection__img" src="https://d2r00w08fz6ft0.cloudfront.net/ludus-demo/images/collection/coll-1.e2a1ae3280a159d25dbb4c6632512cad.jpg">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-7 col-md-7 u-s-m-b-30">
+
+                        <a class="collection" href="/san-pham">
+                            <div class="aspect aspect--bg-grey aspect--1286-890">
+
+                                <img class="aspect__img collection__img" src="https://d2r00w08fz6ft0.cloudfront.net/ludus-demo/images/collection/coll-2.b43db891b12712e5278d6fc1902c5a89.jpg" alt="">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-7 col-md-7 u-s-m-b-30">
+
+                        <a class="collection" href="/san-pham">
+                            <div class="aspect aspect--bg-grey aspect--1286-890">
+
+                                <img class="aspect__img collection__img" src="https://d2r00w08fz6ft0.cloudfront.net/ludus-demo/images/collection/coll-3.59cf0d5ad1a42583810bbc6ed14166cf.jpg" alt="">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-5 col-md-5 u-s-m-b-30">
+
+                        <a class="collection" href="/san-pham">
+                            <div class="aspect aspect--bg-grey aspect--square">
+
+                                <img class="aspect__img collection__img" src="https://d2r00w08fz6ft0.cloudfront.net/ludus-demo/images/collection/coll-4.58434c1995f2884afe06b5f835f41b1c.jpg" alt="">
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--====== Section Content ======-->
+    </div>
+    <!--====== End - Section 1 ======-->
+    <!--====== Section 2 ======-->
+    <div class="u-s-p-b-60">
+
+        <!--====== Section Intro ======-->
+        <div class="section__intro u-s-m-b-16">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section__text-wrap">
+                            <h1 class="section__heading u-c-secondary u-s-m-b-12">XU HƯỚNG HÀNG ĐẦU</h1>
+
+                            <span class="section__span u-c-silver">CHỌN DANH MỤC</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!--====== End - Section Intro ======-->
+        <!--====== Section Content ======-->
+        <div class="section__content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="filter-category-container">
+                            <div class="filter__category-wrapper">
+
+                                <button class="btn filter__btn filter__btn--style-1 js-checked" type="button" data-filter="*">ALL</button>
+                            </div>
+                            @foreach (var item in tenLoaiSp)
+                            {
+                                <div class="filter__category-wrapper">
+
+                                    <button class="btn filter__btn filter__btn--style-1" type="button" data-filter=".@item.ID">@item.TENLOAI</button>
+                                </div>
+                            }
+                            
+                            
+                        </div>
+                        <div class="filter__grid-wrapper u-s-m-t-30">
+                            <div class="row">
+                                
+                                @foreach (var sp in listNewProduct)
+                                {
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 u-s-m-b-30 filter__item @sp.MALOAI">
+                                        <div class="product-o product-o--hover-on product-o--radius">
+                                            <div class="product-o__wrap">
+
+                                                <a class="aspect aspect--bg-grey aspect--square u-d-block" href="/chi-tiet-san-pham/@sp.ID">
+
+                                                    <img class="aspect__img" src="@sp.ANH" alt="">
+                                                </a>
+                                                <div class="product-o__action-wrap">
+                                                    <ul class="product-o__action-list">
+                                                        <li>
+
+                                                            <a href="/chi-tiet-san-pham/@sp.ID" data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip" data-placement="top" title="Detail View"><i class="fas fa-search-plus"></i></a>
+                                                        </li>
+                                                        <li>
+
+                                                            <a href="/add-to-card?productId=@sp.ID&quantity=1" data-modal="modal" data-modal-id="#add-to-cart" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="fas fa-plus-circle"></i></a>
+                                                        </li>
+                                                            
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                                
+
+                                            <span class="product-o__name">
+
+                                                <a href="/chi-tiet-san-pham/@sp.ID">@sp.TENSP</a>
+                                            </span>
+                                            <div class="product-o__rating gl-rating-style">
+                                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+
+                                                    
+                                            </div>
+                                            @{
+                                                if (sp.GIAMGIA != null)
+                                                {
+                                                    <span class="product-o__price">
+                                                        @sp.GIAMGIA.GetValueOrDefault(0).ToString("N0") VND
+
+                                                        <span class="product-o__discount">@sp.GIAX.GetValueOrDefault(0).ToString("N0") VND</span>
+                                                    </span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="product-o__price">
+                                                        @sp.GIAX.GetValueOrDefault(0).ToString("N0") VND
+
+                                                            
+                                                    </span>
+                                                }
+                                            }
+                                                
+                                        </div>
+                                    </div>
+                                }
+                                    
+                                
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="load-more">
+
+                            <button class="btn btn--e-brand" type="button"><a href="/san-pham" style="color:white">Xem thêm</a></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--====== End - Section Content ======-->
+    <!--====== End - Section 2 ======-->
+    <!--====== Section 3 ======-->
+    <!--====== End - Section 3 ======-->
+    <!--====== Section 4 ======-->
+    <div class="u-s-p-b-60">
+
+        <!--====== Section Intro ======-->
+        <div class="section__intro u-s-m-b-46">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section__text-wrap">
+                            <h1 class="section__heading u-c-secondary u-s-m-b-12">SẢN PHẨM MỚI VỀ</h1>
+
+                            <span class="section__span u-c-silver">MUA NGAY ĐỂ NHẬN ƯU ĐÃI</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--====== End - Section Intro ======-->
+        <!--====== Section Content ======-->
+        <div class="section__content">
+            <div class="container">
+                <div class="slider-fouc">
+                    <div class="owl-carousel product-slider" data-item="4">
+                        @foreach (var item in listNewProduct)
+                        {
+                            <div class="u-s-m-b-30">
+                                <div class="product-o product-o--hover-on">
+                                    <div class="product-o__wrap">
+
+                                        <a class="aspect aspect--bg-grey aspect--square u-d-block" href="/chi-tiet-san-pham/@item.ID">
+
+                                            <img class="aspect__img" src="@item.ANH" alt="">
+                                        </a>
+                                        <div class="product-o__action-wrap">
+                                            <ul class="product-o__action-list">
+                                                <li>
+
+                                                    <a href="/chi-tiet-san-pham/@item.ID" data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip" data-placement="top" title="Detail View"><i class="fas fa-search-plus"></i></a>
+                                                </li>
+                                                <li>
+
+                                                    <a href="/add-to-card?productId=@item.ID&quantity=1" data-modal="modal" data-modal-id="#add-to-cart" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="fas fa-plus-circle"></i></a>
+                                                </li>
+                                                
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    
+
+                                    <span class="product-o__name">
+
+                                        <a href="/chi-tiet-san-pham/@item.ID">@item.TENSP</a>
+                                    </span>
+                                    <div class="product-o__rating gl-rating-style">
+                                        <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+
+                                        
+                                    </div>
+
+                                    @{
+                                        if (item.GIAMGIA != null)
+                                        {
+                                            <span class="product-o__price">
+                                                @item.GIAMGIA.GetValueOrDefault(0).ToString("N0") VND
+
+                                                <span class="product-o__discount">@item.GIAX.GetValueOrDefault(0).ToString("N0") VND</span>
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span class="product-o__price">
+                                                @item.GIAX.GetValueOrDefault(0).ToString("N0") VND
+
+
+                                            </span>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        }
+
+
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--====== End - Section Content ======-->
+    </div>
+    <!--====== End - Section 4 ======-->
+    <!--====== Section 5 ======-->
+    <div class="banner-bg" style="background-image:url(https://cdn.nguyenkimmall.com/images/companies/_1/MKT_ECM/MARKETING/KM%20T6/home%20banner/Homepage_1008x405px_TuLanh.jpg)">
+
+        <!--====== Section Content ======-->
+        <div class="section__content">
+            <div class="container">
+                <div class="row" >
+                    
+                    <div class="col-lg-12">
+
+                        <div class="banner-bg__wrap">
+                            <div class="banner-bg__text-1">
+
+                                <span class="u-c-white">ƯU ĐÃI</span>
+
+                                <span class="u-c-secondary">TOÀN QUỐC</span>
+                            </div>
+                            <div class="banner-bg__text-2">
+
+                                <span class="u-c-secondary">RẤT NHIỀU SẢN PHẨM MỚI</span>
+
+                                <span class="u-c-white">ĐỪNG BỎ LỠ</span>
+                            </div>
+
+                            <span class="banner-bg__text-block banner-bg__text-3 u-c-secondary">Tận hưởng giao hàng miễn phí!</span>
+
+                            <a class="banner-bg__shop-now btn--e-secondary" href="/san-pham">Mua ngay</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--====== End - Section Content ======-->
+    </div>
+    <!--====== End - Section 5 ======-->
+    <!--====== Section 6 ======-->
+    <div class="u-s-p-y-60">
+
+        <!--====== Section Intro ======-->
+        <div class="section__intro u-s-m-b-46">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section__text-wrap">
+                            <h1 class="section__heading u-c-secondary u-s-m-b-12">SẢN PHẨM NỔI BẬT</h1>
+
+                            <span class="section__span u-c-silver">TÌM HIỂU SẢN PHẨM NỔI BẬT MỚI</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--====== End - Section Intro ======-->
+        <!--====== Section Content ======-->
+        <div class="section__content">
+            <div class="container">
+                <div class="row">
+                    @foreach (var item in listFeatureProduct)
+                    {
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 u-s-m-b-30">
+                            <div class="product-o product-o--hover-on u-h-100">
+                                <div class="product-o__wrap">
+
+                                    <a class="aspect aspect--bg-grey aspect--square u-d-block" href="/chi-tiet-san-pham/@item.ID">
+
+                                        <img class="aspect__img" src="@item.ANH" alt="">
+                                    </a>
+                                    <div class="product-o__action-wrap">
+                                        <ul class="product-o__action-list">
+                                            <li>
+
+                                                <a href="/chi-tiet-san-pham/@item.ID" data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip" data-placement="top" title="Detail View"><i class="fas fa-search-plus"></i></a>
+                                            </li>
+                                            <li>
+
+                                                <a href="/add-to-card?productId=@item.ID&quantity=1" data-modal="modal" data-modal-id="#add-to-cart" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="fas fa-plus-circle"></i></a>
+                                            </li>
+                                            
+                                        </ul>
+                                    </div>
+                                    
+                                </div>
+
+                                
+
+                                <span class="product-o__name">
+
+                                    <a href="/chi-tiet-san-pham/@item.ID">@item.TENSP</a>
+                                </span>
+                                <div class="product-o__rating gl-rating-style">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+
+                                    
+                                </div>
+
+                                @{
+                                    if (item.GIAMGIA != null)
+                                    {
+                                        <span class="product-o__price">
+                                            @item.GIAMGIA.GetValueOrDefault(0).ToString("N0") VND
+
+                                            <span class="product-o__discount">@item.GIAX.GetValueOrDefault(0).ToString("N0") VND</span>
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="product-o__price">
+                                            @item.GIAX.GetValueOrDefault(0).ToString("N0") VND
+
+                                            
+                                        </span>
+                                    }
+                                }
+                            </div>
+                        </div>
+                        
+                    }
+                </div>
+            </div>
+        </div>
+        <!--====== End - Section Content ======-->
+    </div>
+    <!--====== End - Section 6 ======-->
+    <!--====== Section 7 ======-->
+    <div class="u-s-p-b-60">
+
+        <!--====== Section Content ======-->
+        <div class="section__content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-6 u-s-m-b-30">
+
+                        <a class="promotion" href="/san-pham">
+                            <div class="aspect aspect--bg-grey aspect--square">
+
+                                <img class="aspect__img promotion__img" src="https://d2r00w08fz6ft0.cloudfront.net/ludus-demo/images/promo/promo-img-1.5f96cc043d8d56d909cf10e4e5aa15f1.jpg" alt="">
+                            </div>
+                            <div class="promotion__content">
+                                <div class="promotion__text-wrap">
+                                    <div class="promotion__text-1">
+
+                                        <span class="u-c-secondary">NHIỀU ƯU ĐÃI MỖI NGÀY</span>
+                                    </div>
+                                    <div class="promotion__text-2">
+
+                                        <span class="u-c-secondary">VÀO</span>
+
+                                        <span class="u-c-brand">MUA NGAY</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 u-s-m-b-30">
+
+                        <a class="promotion" href="/san-pham">
+                            <div class="aspect aspect--bg-grey aspect--square">
+
+                                <img class="aspect__img promotion__img" src="https://d2r00w08fz6ft0.cloudfront.net/ludus-demo/images/promo/promo-img-2.abd2eefacfe8993c75b7b2fa7b1255b9.jpg" alt="">
+                            </div>
+                            <div class="promotion__content">
+                                <div class="promotion__text-wrap">
+                                    <div class="promotion__text-1">
+
+                                        <span class="u-c-secondary">SẢN PHẨM </span>
+
+                                        <span class="u-c-brand">MỚI</span>
+                                    </div>
+                                    <div class="promotion__text-2">
+
+                                        <span class="u-c-secondary">SIÊU TIẾT KIỆM</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 u-s-m-b-30">
+
+                        <a class="promotion" href="/san-pham">
+                            <div class="aspect aspect--bg-grey aspect--square">
+
+                                <img class="aspect__img promotion__img" src="https://d2r00w08fz6ft0.cloudfront.net/ludus-demo/images/promo/promo-img-3.d0917732e79dbe1ebd3f7faaa530e720.jpg" alt="">
+                            </div>
+                            <div class="promotion__content">
+                                <div class="promotion__text-wrap">
+                                    <div class="promotion__text-1">
+
+                                        <span class="u-c-secondary">NHIỀU CHƯƠNG TRÌNH</span>
+                                    </div>
+                                    <div class="promotion__text-2">
+
+                                        <span class="u-c-brand">GIẢM GIÁ ĐẾN 10%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--====== End - Section Content ======-->
+    </div>
+    <!--====== End - Section 7 ======-->
+    <!--====== Section 8 ======-->
+    <!--====== End - Section 8 ======-->
+    <!--====== Section 9 ======-->
+    <div class="u-s-p-b-60">
+
+        <!--====== Section Content ======-->
+        <div class="section__content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 u-s-m-b-30">
+                        <div class="service u-h-100">
+                            <div class="service__icon"><i class="fas fa-truck"></i></div>
+                            <div class="service__info-wrap">
+
+                                <span class="service__info-text-1">Miễn phí vận chuyển</span>
+
+                                <span class="service__info-text-2">Miễn phí vận chuyển trên toàn quốc</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 u-s-m-b-30">
+                        <div class="service u-h-100">
+                            <div class="service__icon"><i class="fas fa-redo"></i></div>
+                            <div class="service__info-wrap">
+
+                                <span class="service__info-text-1">Mua sắm với sự tự tin</span>
+
+                                <span class="service__info-text-2">Sự bảo vệ của chúng tôi bao gồm việc mua hàng của bạn từ khi nhấp chuột đến khi giao hàng</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 u-s-m-b-30">
+                        <div class="service u-h-100">
+                            <div class="service__icon"><i class="fas fa-headphones-alt"></i></div>
+                            <div class="service__info-wrap">
+
+                                <span class="service__info-text-1">Trung tâm trợ giúp 24/7</span>
+
+                                <span class="service__info-text-2">Hỗ trợ suốt ngày đêm để có trải nghiệm mua sắm suôn sẻ</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--====== End - Section Content ======-->
+    </div>
+    <!--====== End - Section 9 ======-->
+    <!--====== Section 10 ======-->
+    <div class="u-s-p-b-60">
+
+        <!--====== Section Intro ======-->
+        <div class="section__intro u-s-m-b-46">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section__text-wrap">
+                            <h1 class="section__heading u-c-secondary u-s-m-b-12">TIN TỨC MỚI NHẤT</h1>
+
+                            <span class="section__span u-c-silver">HÃY BẮT ĐẦU MỘT NGÀY VỚI NHỮNG TIN TỨC MỚI NHẤT </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--====== End - Section Intro ======-->
+        <!--====== Section Content ======-->
+        <div class="section__content">
+            <div class="container">
+                <div class="row">
+                    @foreach (var item in tintuc)
+                    {
+                        <div class="col-lg-4 col-md-6 u-s-m-b-30">
+                            <div class="bp-mini bp-mini--img u-h-100">
+                                <div class="bp-mini__thumbnail">
+
+                                    <!--====== Image Code ======-->
+
+                                    <a class="aspect aspect--bg-grey aspect--1366-768 u-d-block" href="/tin-tuc/@item.ID">
+
+                                        <img class="aspect__img" src="@item.ANH" alt="">
+                                    </a>
+                                    <!--====== End - Image Code ======-->
+                                </div>
+                                <div class="bp-mini__content">
+                                    <div class="bp-mini__stat">
+
+                                        <span class="bp-mini__stat-wrap">
+
+                                            <span class="bp-mini__publish-date">
+
+                                                <a>
+
+                                                    <span>@item.NGAYDANG</span>
+                                                </a>
+                                            </span>
+                                        </span>
+
+                                        
+
+                                    </div>
+                                    
+
+                                    <span class="bp-mini__h1">
+
+                                        <a href="/tin-tuc/@item.ID">@item.TIEUDE</a>
+                                    </span>
+                                    <p class="bp-mini__p">@item.NDNGAN</p>
+                                    <div class="blog-t-w">
+
+                                        <a class="gl-tag btn--e-transparent-hover-brand-b-2" href="/tin-tuc/@item.ID">Xem thêm</a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+        <!--====== End - Section Content ======-->
+    </div>
+    <!--====== End - Section 10 ======-->
+    <!--====== Section 11 ======-->
+    <div class="u-s-p-b-90 u-s-m-b-30">
+
+        <!--====== Section Intro ======-->
+        <div class="section__intro u-s-m-b-46">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section__text-wrap">
+                            <h1 class="section__heading u-c-secondary u-s-m-b-12">PHẢN HỒI KHÁCH HÀNG</h1>
+
+                            <span class="section__span u-c-silver">KHÁCH HÀNG CỦA CHÚNG TÔI NÓI GÌ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--====== End - Section Intro ======-->
+        <!--====== Section Content ======-->
+        <div class="section__content">
+            <div class="container">
+
+                <!--====== Testimonial Slider ======-->
+                <div class="slider-fouc">
+                    <div class="owl-carousel" id="testimonial-slider">
+                        @foreach (var item in feedback)
+                        {
+                            <div class="testimonial">
+                                <div class="testimonial__img-wrap">
+
+                                    <img class="testimonial__img" src="@item.ANH" alt="">
+                                </div>
+                                <div class="testimonial__content-wrap">
+
+                                    <span class="testimonial__double-quote"><i class="fas fa-quote-right"></i></span>
+                                    <blockquote class="testimonial__block-quote">
+                                        <p>"@item.NDBL."</p>
+                                    </blockquote>
+
+                                    <span class="testimonial__author">@item.TENKH</span>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <!--====== End - Testimonial Slider ======-->
+            </div>
+        </div>
+        <!--====== End - Section Content ======-->
+    </div>
+    <!--====== End - Section 11 ======-->
+    <!--====== Section 12 ======-->
+    <div class="u-s-p-b-60">
+
+        <!--====== Section Content ======-->
+        <div class="section__content">
+            <div class="container">
+
+                <!--====== Brand Slider ======-->
+                <div class="slider-fouc">
+                    <div class="owl-carousel" id="brand-slider" data-item="5">
+                        @foreach (var item in logo)
+                        {
+                            <div class="brand-slide">
+
+                                <a href="/san-pham/hang-san-xuat/@item.ID">
+
+                                    <img src="@item.ANH" alt="">
+                                </a>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <!--====== End - Brand Slider ======-->
+            </div>
+        </div>
+        <!--====== End - Section Content ======-->
+    </div>
+    <!--====== End - Section 12 ======-->
+</div>
+<!--====== End - App Content ======-->
+

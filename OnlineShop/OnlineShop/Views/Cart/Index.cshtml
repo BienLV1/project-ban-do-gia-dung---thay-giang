@@ -1,0 +1,233 @@
+﻿@model List<OnlineShop.Models.CartItem>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section jsFooter{
+
+    
+<script src="/assets/Client/js/controller/cartController.js"></script>
+}
+<!--====== App Content ======-->
+<div class="app-content">
+
+    <!--====== Section 1 ======-->
+    <div class="u-s-p-y-60">
+
+        <!--====== Section Content ======-->
+        <div class="section__content">
+            <div class="container">
+                <div class="breadcrumb">
+                    <div class="breadcrumb__wrap">
+                        <ul class="breadcrumb__list">
+                            <li class="has-separator">
+
+                                <a href="/Home/Index">Trang chủ</a>
+                            </li>
+                            <li class="is-marked">
+
+                                <a href="/add-to-card">Giỏ hàng</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--====== End - Section 1 ======-->
+    <!--====== Section 2 ======-->
+    <div class="u-s-p-b-60">
+
+        <!--====== Section Intro ======-->
+        <div class="section__intro u-s-m-b-60">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section__text-wrap">
+                            <h1 class="section__heading u-c-secondary">GIỎ HÀNG CỦA BẠN</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--====== End - Section Intro ======-->
+        <!--====== Section Content ======-->
+        <div class="section__content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 u-s-m-b-30">
+                        <div class="table-responsive">
+                            @if (Model.Count > 0)
+                            {
+                                <table class="table-p">
+                                    <tbody>
+
+                                        @foreach (var item in Model)
+                                        {
+                                        <!--====== Row ======-->
+                                            <tr>
+                                                <td>
+                                                    <div class="table-p__box">
+                                                        <div >
+
+                                                            <img  src="@item.Product.ANH" alt="" width="100">
+                                                        </div>
+                                                        <div class="table-p__info">
+
+                                                            <span class="table-p__name">
+
+                                                                <a href="/chi-tiet-san-pham/@item.Product.ID">@item.Product.TENSP</a>
+                                                            </span>
+
+                                                            <span class="table-p__category">
+
+                                                                <a href="/san-pham">Xem thêm</a>
+                                                            </span>
+                                                            <ul class="table-p__variant-list">
+                                                                <li>
+                                                                    @if (item.Product.GIAMGIA != null)
+                                                                    {
+                                                                        <span>Giá: @item.Product.GIAMGIA VND</span>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <span>Giá: @item.Product.GIAX VND</span>
+                                                                    }
+                                                                </li>
+
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    @if (item.Product.GIAMGIA != null)
+                                                    {
+                                                        <span class="table-p__price">
+                                                            @((item.Product.GIAMGIA.GetValueOrDefault(0) * item.Quantity).ToString("N0")) VND
+                                                        </span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="table-p__price">
+                                                            @((item.Product.GIAX.GetValueOrDefault(0) * item.Quantity).ToString("N0")) VND
+                                                        </span>
+                                                    }
+                                                </td>
+                                                <td>
+                                                    <div class="table-p__input-counter-wrap">
+
+                                                        <!--====== Input Counter ======-->
+                                                        <div class="input-counter">
+
+                                                            <span class="input-counter__minus fas fa-minus"></span>
+
+                                                            <input class="input-counter__text input-counter--text-primary-style txtQuantity" data-id="@item.Product.ID" type="text" value="@item.Quantity" data-min="1" data-max="1000">
+
+                                                            <span class="input-counter__plus fas fa-plus"></span>
+                                                        </div>
+                                                        <!--====== End - Input Counter ======-->
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="table-p__del-wrap">
+
+                                                        <a class="far fa-trash-alt table-p__delete-link btn-delete" href="#" data-id="@item.Product.ID" ></a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                    <!--====== End - Row ======-->
+                                        }
+
+                                    </tbody>
+                                </table>
+                            }
+                            else
+                            {
+                                <span class="alert alert-danger">Chưa có sản phẩm nào trong giỏ hàng</span>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="route-box">
+                            <div class="route-box__g1">
+
+                                <a class="route-box__link" href="/san-pham">
+                                    <i class="fas fa-long-arrow-alt-left"></i>
+
+                                    <span>Tiếp tục mua hàng</span>
+                                </a>
+                            </div>
+                            <div class="route-box__g2">
+
+                                <a class="route-box__link">
+                                    <i class="fas fa-trash"></i>
+
+                                    <button id="btnDeleteAll" class="btn btn--e-brand-b-2">Xoá giỏ hàng</button>
+                                </a>
+
+                                <a class="route-box__link" >
+                                    <i class="fas fa-sync"></i>
+
+                                    <button id="btnUpdate" class="btn btn--e-brand-b-2">Cập nhật giỏ hàng</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--====== End - Section Content ======-->
+    </div>
+    <!--====== End - Section 2 ======-->
+    <!--====== Section 3 ======-->
+    <div class="u-s-p-b-60">
+
+        <!--====== Section Content ======-->
+        <div class="section__content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 u-s-m-b-30">
+                        <form class="f-cart">
+                            <div class="row">
+
+                                <div class="col-lg-4 col-md-6 u-s-m-b-30">
+                                    <div class="f-cart__pad-box">
+                                        <div class="u-s-m-b-30">
+                                            <table class="f-cart__table">
+                                                <tbody>
+                                                    
+                                                    
+                                                    <tr>
+                                                        <td>Tổng</td>
+                                                        @{
+                                                            var sum = (Model.Where(x => x.Product.GIAMGIA != null).Sum(x => x.Product.GIAMGIA.GetValueOrDefault(0) * x.Quantity).ToString("N0"));
+                                                            
+                                                        }
+                                                        <td>@sum VND</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            Thành tiền
+                                                        </td>
+                                                        <td>@sum VND</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div>
+                                            <button  class="btn btn--e-brand-b-2" type="submit"><a href="/thanh-toan" style="color:white">Thanh Toán</a> </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--====== End - Section Content ======-->
+    </div>
+    <!--====== End - Section 3 ======-->
+</div>
+<!--====== End - App Content ======-->
+

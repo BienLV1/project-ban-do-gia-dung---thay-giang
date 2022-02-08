@@ -1,0 +1,95 @@
+﻿@model Models.FrameWork.oder
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section header{
+
+    Thêm mới oder.}
+
+@using (Html.BeginForm("Edit", "Oder", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>oder</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="row">
+            <div class="col-6 col-sm-6 col-md-6 col-lg-3">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.name, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.phone, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.phone, new { htmlAttributes = new { @type = "phone", @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.phone, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-sm-6 col-md-6 col-lg-3">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.address, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.address, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.address, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.email, new { htmlAttributes = new { @type = "email", @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-sm-6 col-md-6 col-lg-3">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.total, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.total, new { htmlAttributes = new { @type = "number", @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.total, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ngaydathang, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.ngaydathang, new { htmlAttributes = new { @type = "date", @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ngaydathang, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-sm-6 col-md-6 col-lg-3">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.thanhtoan, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.thanhtoan, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.thanhtoan, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit" value="Create" class="btn btn-primary">
+                    Cập nhật
+                </button>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

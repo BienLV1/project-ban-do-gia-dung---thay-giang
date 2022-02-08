@@ -1,0 +1,30 @@
+d:\documents\visual studio 2015\Projects\OnlineShop\Models\bin\Debug\Models.dll.config
+d:\documents\visual studio 2015\Projects\OnlineShop\Models\bin\Debug\Models.dll
+d:\documents\visual studio 2015\Projects\OnlineShop\Models\bin\Debug\Models.pdb
+d:\documents\visual studio 2015\Projects\OnlineShop\Models\bin\Debug\EntityFramework.dll
+d:\documents\visual studio 2015\Projects\OnlineShop\Models\bin\Debug\EntityFramework.SqlServer.dll
+d:\documents\visual studio 2015\Projects\OnlineShop\Models\bin\Debug\PagedList.dll
+d:\documents\visual studio 2015\Projects\OnlineShop\Models\bin\Debug\PagedList.Mvc.dll
+d:\documents\visual studio 2015\Projects\OnlineShop\Models\bin\Debug\EntityFramework.xml
+d:\documents\visual studio 2015\Projects\OnlineShop\Models\bin\Debug\EntityFramework.SqlServer.xml
+d:\documents\visual studio 2015\Projects\OnlineShop\Models\bin\Debug\PagedList.xml
+d:\documents\visual studio 2015\Projects\OnlineShop\Models\bin\Debug\PagedList.Mvc.xml
+d:\documents\visual studio 2015\Projects\OnlineShop\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
+d:\documents\visual studio 2015\Projects\OnlineShop\Models\obj\Debug\Models.dll
+d:\documents\visual studio 2015\Projects\OnlineShop\Models\obj\Debug\Models.pdb
+D:\My PC\Documents\Visual Studio 2019\Project\Nhóm 5- Website bán đồ gia dụng\OnlineShop\Models\bin\Debug\Models.dll.config
+D:\My PC\Documents\Visual Studio 2019\Project\Nhóm 5- Website bán đồ gia dụng\OnlineShop\Models\bin\Debug\Models.dll
+D:\My PC\Documents\Visual Studio 2019\Project\Nhóm 5- Website bán đồ gia dụng\OnlineShop\Models\bin\Debug\Models.pdb
+D:\My PC\Documents\Visual Studio 2019\Project\Nhóm 5- Website bán đồ gia dụng\OnlineShop\Models\bin\Debug\EntityFramework.dll
+D:\My PC\Documents\Visual Studio 2019\Project\Nhóm 5- Website bán đồ gia dụng\OnlineShop\Models\bin\Debug\EntityFramework.SqlServer.dll
+D:\My PC\Documents\Visual Studio 2019\Project\Nhóm 5- Website bán đồ gia dụng\OnlineShop\Models\bin\Debug\PagedList.dll
+D:\My PC\Documents\Visual Studio 2019\Project\Nhóm 5- Website bán đồ gia dụng\OnlineShop\Models\bin\Debug\PagedList.Mvc.dll
+D:\My PC\Documents\Visual Studio 2019\Project\Nhóm 5- Website bán đồ gia dụng\OnlineShop\Models\bin\Debug\EntityFramework.xml
+D:\My PC\Documents\Visual Studio 2019\Project\Nhóm 5- Website bán đồ gia dụng\OnlineShop\Models\bin\Debug\EntityFramework.SqlServer.xml
+D:\My PC\Documents\Visual Studio 2019\Project\Nhóm 5- Website bán đồ gia dụng\OnlineShop\Models\bin\Debug\PagedList.xml
+D:\My PC\Documents\Visual Studio 2019\Project\Nhóm 5- Website bán đồ gia dụng\OnlineShop\Models\bin\Debug\PagedList.Mvc.xml
+D:\My PC\Documents\Visual Studio 2019\Project\Nhóm 5- Website bán đồ gia dụng\OnlineShop\Models\obj\Debug\Models.csproj.AssemblyReference.cache
+D:\My PC\Documents\Visual Studio 2019\Project\Nhóm 5- Website bán đồ gia dụng\OnlineShop\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
+D:\My PC\Documents\Visual Studio 2019\Project\Nhóm 5- Website bán đồ gia dụng\OnlineShop\Models\obj\Debug\Models.csproj.CopyComplete
+D:\My PC\Documents\Visual Studio 2019\Project\Nhóm 5- Website bán đồ gia dụng\OnlineShop\Models\obj\Debug\Models.dll
+D:\My PC\Documents\Visual Studio 2019\Project\Nhóm 5- Website bán đồ gia dụng\OnlineShop\Models\obj\Debug\Models.pdb

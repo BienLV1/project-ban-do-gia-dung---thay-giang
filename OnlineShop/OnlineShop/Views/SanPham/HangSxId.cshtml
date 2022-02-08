@@ -1,0 +1,215 @@
+﻿
+@{
+    ViewBag.Title = "ProductHangSxId";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var allProductHangSx = (List<Models.FrameWork.sanpham>)ViewBag.productHangSx;
+    var allCategory = (List<Models.FrameWork.loaisp>)ViewBag.AllCategory;
+    var allHangSx = (List<Models.FrameWork.hangsx>)ViewBag.AllHangSx;
+    var hangsx = (Models.FrameWork.hangsx)ViewBag.HangSx;
+}
+}
+
+
+<!--====== App Content ======-->
+<div class="app-content">
+
+    <!--====== Section 1 ======-->
+    <div class="u-s-p-y-90">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-12">
+                    <div class="shop-w-master">
+                        <h1 class="shop-w-master__heading u-s-m-b-30">
+                            <i class="fas fa-filter u-s-m-r-8"></i>
+
+                            <span>LỌC</span>
+                        </h1>
+                        <div class="shop-w-master__sidebar">
+                            <div class="u-s-m-b-30">
+                                <div class="shop-w shop-w--style">
+                                    <div class="shop-w__intro-wrap">
+                                        <h1 class="shop-w__h">DANH MỤC SẢN PHẨM</h1>
+
+                                        <span class="fas fa-minus shop-w__toggle" data-target="#s-category" data-toggle="collapse"></span>
+                                    </div>
+                                    <div class="shop-w__wrap collapse show" id="s-category">
+                                        <ul class="shop-w__category-list gl-scroll">
+                                            @foreach (var item in allCategory)
+                                            {
+                                                <li>
+
+                                                    <a href="/san-pham/loai-san-pham/@item.ID">@item.TENLOAI</a>
+
+
+                                                </li>
+                                            }
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="u-s-m-b-30">
+                                <div class="shop-w shop-w--style">
+                                    <div class="shop-w__intro-wrap">
+                                        <h1 class="shop-w__h">HÃNG SẢN XUẤT</h1>
+
+                                        <span class="fas fa-minus shop-w__toggle" data-target="#s-manufacturer" data-toggle="collapse"></span>
+                                    </div>
+                                    <div class="shop-w__wrap collapse show" id="s-category">
+                                        <ul class="shop-w__category-list gl-scroll">
+                                            @foreach (var item in allHangSx)
+                                            {
+                                                <li>
+
+                                                    <a href="/san-pham/hang-san-xuat/@item.ID">@item.TENHANG</a>
+
+
+                                                </li>
+                                            }
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9 col-md-12">
+                    <div class="shop-p">
+                        <div class="shop-p__toolbar u-s-m-b-30">
+
+                            <div class="shop-p__tool-style">
+                                <div class="tool-style__group u-s-m-b-8">
+
+                                    <span class="js-shop-grid-target is-active">Lưới</span>
+
+                                    <span class="js-shop-list-target">Danh sách</span>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="shop-p__collection">
+                            <div class="row is-grid-active">
+                                @foreach (var item in allProductHangSx)
+                                {
+                                    <div class="col-lg-4 col-md-6 col-sm-6 filter__item @item.MALOAI">
+                                        <div class="product-m">
+                                            <div class="product-m__thumb">
+
+                                                <a class="aspect aspect--bg-grey aspect--square u-d-block" href="/chi-tiet-san-pham/@item.ID">
+
+                                                    <img class="aspect__img" src="@item.ANH" alt="">
+                                                </a>
+                                                <div class="product-m__quick-look">
+
+                                                    <a href="/chi-tiet-san-pham/@item.ID" class="fas fa-search" data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip" data-placement="top" title="Detail Look"></a>
+                                                </div>
+                                                <div class="product-m__add-cart">
+
+                                                    <a href="/add-to-card?productId=@item.ID&quantity=1" class="btn--e-brand" data-modal="modal" data-modal-id="#add-to-cart">Thêm vào giỏ</a>
+                                                </div>
+                                            </div>
+                                            <div class="product-m__content">
+                                                
+                                                <div class="product-m__name">
+
+                                                    <a href="/chi-tiet-san-pham/@item.ID">@item.TENSP</a>
+                                                </div>
+                                                <div class="product-m__rating gl-rating-style">
+                                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+
+
+                                                </div>
+                                                @{
+                                                    if (item.GIAMGIA != null)
+                                                    {
+                                                        <span class="product-o__price">
+                                                            @item.GIAMGIA VND
+
+                                                            <span class="product-o__discount">@item.GIAX VND</span>
+                                                        </span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="product-o__price">
+                                                            @item.GIAX VND
+
+
+                                                        </span>
+                                                    }
+                                                }
+                                                <div class="product-m__hover">
+                                                    <div class="product-m__preview-description">
+
+                                                        <span>@item.MOTA</span>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                                    }
+                            </div>
+                        </div>
+                        <div class="u-s-p-y-60">
+
+                            <!--====== Pagination ======-->
+                            @if (ViewBag.ToTalPage > 1)
+                            {
+                                var pageDisplay = (int)ViewBag.MaxPage;
+                                int totalPage = (int)ViewBag.TotalPage;
+                                int currentPage = ((int)ViewBag.Page);
+
+                                // Create numeric links
+                                var startPageIndex = Math.Max(1, currentPage - pageDisplay / 2);
+                                var endPageIndex = Math.Min(totalPage, currentPage + pageDisplay / 2);
+
+                                var link = "/san-pham/hang-san-xuat/" + hangsx.ID;
+
+                                <ul class="shop-p__pagination">
+
+                                    @if (currentPage > ViewBag.First)
+                                    {
+                                        <li><a href="@link?page=@ViewBag.First" title="Trang đầu" class="first"><i class="fa fa-angle-double-left"></i></a></li>
+                                        <li>
+                                            <a href="@link?page=@ViewBag.Prev" title="Trang trước" class="prev"><i class="fa fa-angle-left"></i></a>
+                                        </li>
+
+                                    }
+                                    @for (int i = startPageIndex; i <= endPageIndex; i++)
+                                    {
+                                        if (currentPage == i)
+                                        {
+
+                                            <li> <a href="@link?page=@i" class="active" title="Trang @i">@i</a></li>
+                                        }
+                                        else
+                                        {
+                                            <li><a href="@link?page=@i" title="Trang @i" class="pos">@i</a></li>
+                                        }
+                                    }
+                                    @if (currentPage < totalPage)
+                                    {
+                                        <li><a href="@link?page=@ViewBag.Next" class="next" title="Trang sau"><i class="fa fa-angle-right"></i></a></li>
+                                        <li> <a href="@link?page=@ViewBag.Last" class="last" title="Trang cuối"><i class="fa fa-angle-double-right"></i></a></li>
+                                    }
+                                </ul>
+                            }
+                            else
+                            {
+                                <hr />
+                            }
+
+                            <!--====== End - Pagination ======-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--====== End - Section 1 ======-->
+</div>
+<!--====== End - App Content ======-->

@@ -1,0 +1,63 @@
+﻿@model Models.FrameWork.hangsx
+
+@{
+    ViewBag.Title = "Insert";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section header{
+    Thêm mới hãng sản xuất.}
+
+@using (Html.BeginForm("Insert","HangSx",FormMethod.Post)) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>hangsx</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="row">
+            <div class="col-12 col-md-4">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.MAHANGSX, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.MAHANGSX, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.MAHANGSX, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.TENHANG, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.TENHANG, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.TENHANG, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="form-group ">
+                    @Html.LabelFor(model => model.ANH, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.ANH, new { htmlAttributes = new { @class = "form-control" }, id = "ImagePath" })
+                        <button id="selectImage" class="btn btn-primary" type="button">Chọn ảnh</button>
+                        @Html.ValidationMessageFor(model => model.ANH, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit" value="Create" class="btn btn-primary">
+                    Thêm mới
+                </button>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

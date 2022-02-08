@@ -1,0 +1,123 @@
+﻿
+@{
+    ViewBag.Title = "All";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var allNews = (List<Models.FrameWork.tintuc>)ViewBag.AllNews;
+}
+
+<div class="app-content">
+
+    <!--====== Section 1 ======-->
+    <div class="u-s-p-y-60">
+        <div class="container">
+            <div class="blog-m">
+                <div class="row blog-m-init">
+                    @foreach (var item in allNews)
+                    {
+                        <div class="blog-m__element">
+                            <div class="bp-mini bp-mini--img">
+                                <div class="bp-mini__thumbnail">
+
+                                    <!--====== Image Code ======-->
+
+                                    <a class="aspect aspect--bg-grey aspect--1366-768 u-d-block" href="/tin-tuc/@item.ID">
+
+                                        <img class="aspect__img" src="@item.ANH" alt="">
+                                    </a>
+                                    <!--====== End - Image Code ======-->
+                                </div>
+                                <div class="bp-mini__content">
+                                    <div class="bp-mini__stat">
+
+                                        <span class="bp-mini__stat-wrap">
+
+                                            <span class="bp-mini__publish-date">
+
+                                                <a href="#">
+
+                                                    <span>@item.NGAYDANG</span>
+                                                </a>
+                                            </span>
+                                        </span>
+
+                                        
+
+                                        
+                                    </div>
+                                    
+
+                                    <span class="bp-mini__h1">
+
+                                        <a href="/tin-tuc/@item.ID">@item.TIEUDE</a>
+                                    </span>
+                                    <p class="bp-mini__p">@item.NDNGAN</p>
+                                    
+                                    <div class="blog-t-w">
+
+                                        <a class="gl-tag btn--e-transparent-hover-brand-b-2" href="/tin-tuc/@item.ID">Xem thêm</a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+            <div class="u-s-p-y-60">
+
+                <!--====== Pagination ======-->
+                @if (ViewBag.ToTalPage > 1)
+                {
+                    var pageDisplay = (int)ViewBag.MaxPage;
+                    int totalPage = (int)ViewBag.TotalPage;
+                    int currentPage = ((int)ViewBag.Page);
+
+                    // Create numeric links
+                    var startPageIndex = Math.Max(1, currentPage - pageDisplay / 2);
+                    var endPageIndex = Math.Min(totalPage, currentPage + pageDisplay / 2);
+
+                    var link = "/tin-tuc";
+
+                    <ul class="shop-p__pagination">
+
+                        @if (currentPage > ViewBag.First)
+                        {
+                            <li><a href="@link?page=@ViewBag.First" title="Trang đầu" class="first"><i class="fa fa-angle-double-left"></i></a></li>
+                                        <li>
+                                            <a href="@link?page=@ViewBag.Prev" title="Trang trước" class="prev"><i class="fa fa-angle-left"></i></a>
+                                        </li>
+
+                        }
+                        @for (int i = startPageIndex; i <= endPageIndex; i++)
+                        {
+                            if (currentPage == i)
+                            {
+
+                                <li> <a href="@link?page=@i" class="active" title="Trang @i">@i</a></li>
+                            }
+                            else
+                            {
+                                <li><a href="@link?page=@i" title="Trang @i" class="pos">@i</a></li>
+                            }
+                        }
+                        @if (currentPage < totalPage)
+                        {
+                            <li><a href="@link?page=@ViewBag.Next" class="next" title="Trang sau"><i class="fa fa-angle-right"></i></a></li>
+                                        <li> <a href="@link?page=@ViewBag.Last" class="last" title="Trang cuối"><i class="fa fa-angle-double-right"></i></a></li>
+                        }
+                    </ul>
+                }
+                else
+                {
+                    <hr />
+                }
+
+                <!--====== End - Pagination ======-->
+            </div>
+
+        </div>
+    </div>
+    <!--====== End - Section 1 ======-->
+</div>
+

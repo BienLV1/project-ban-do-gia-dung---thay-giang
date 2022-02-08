@@ -1,0 +1,10 @@
+﻿@model List<Models.FrameWork.Menu>
+<div class="collapse navbar-collapse" id="ftco-nav">
+    <ul class="navbar-nav ml-auto">
+        @foreach (var item in Model)
+        {
+            <li class="nav-item active"><a href="@item.Link" target="@item.Target" class="nav-link">@item.Text</a></li>
+        }
+
+    </ul>
+</div>

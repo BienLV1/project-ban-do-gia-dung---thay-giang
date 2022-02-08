@@ -1,0 +1,76 @@
+﻿@model PagedList.IPagedList<Models.FrameWork.Menu>
+
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "Quản lý Menu";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section header{
+    Danh sách Menu.}
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Danh sách Menu</h6>
+    </div>
+    <div class="card-body">
+        @using (Html.BeginForm("Index", "Menu", FormMethod.Get))
+        {
+            <div class="row" style="margin-bottom:20px;">
+                <div class="col-lg-5">
+                    <div class="input-group">
+                        <input type="text" value="@ViewBag.SearchString" name="searchString" class="form-control bg-light border-0 small" placeholder="Search for..."
+                               aria-label="Search" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="submit">
+                                <i class="fas fa-search fa-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        }
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Text</th>
+                        <th>Link</th>
+                        
+                        <th>TypeID</th>
+                        <th>Chức năng</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr id="row_@item.ID">
+                            <td>@item.Text</td>
+                            <td>@item.Link</td>
+                            
+                            <td>@item.TypeID</td>
+                            <td>
+                                <a href="/Admin/Menu/Edit/@item.ID"><button type="button" class="btn btn-primary">Cập nhật</button></a>
+                                |
+                                <button type="button" class="btn btn-danger">
+                                    @Ajax.ActionLink("Xoá", "Delete", new { @id = item.ID }, new AjaxOptions
+                               {
+                                   Confirm = "Bạn muốn xóa bản ghi này không",
+                                   OnComplete = "$('#row_ " + item.ID + "').remove()",
+                                   HttpMethod = "Delete"
+                               })
+                                </button>
+
+
+                            </td>
+                        </tr>
+
+                    }
+
+                </tbody>
+            </table>
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString = ViewBag.SearchString }))
+            <a href="/Admin/Menu/Insert"><button type="button" class="btn btn-primary">Thêm mới</button></a>
+        </div>
+    </div>
+</div>

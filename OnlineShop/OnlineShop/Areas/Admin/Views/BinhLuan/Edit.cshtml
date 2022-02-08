@@ -1,0 +1,81 @@
+﻿@model Models.FrameWork.binhluan
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section header{
+    Cập nhật bình luận.}
+
+@using (Html.BeginForm("Edit", "BinhLuan", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>binhluan</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="row">
+            <div class="col-md-3 col-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.TENKH, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.TENKH, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.TENKH, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.EMAIL, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.EMAIL, new { htmlAttributes = new { @type = "email", @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.EMAIL, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.SDT, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.SDT, new { htmlAttributes = new { @type = "phone", @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.SDT, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.NDBL, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.NDBL, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.NDBL, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="form-group ">
+                    @Html.LabelFor(model => model.ANH, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.ANH, new { htmlAttributes = new { @class = "form-control" }, id = "ImagePath" })
+                        <button id="selectImage" class="btn btn-primary" type="button">Chọn ảnh</button>
+                        @Html.ValidationMessageFor(model => model.ANH, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit" value="Create" class="btn btn-primary">
+                    Cập nhật
+                </button>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
